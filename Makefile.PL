@@ -1,3 +1,5 @@
+#!/usr/bin/env perl
+#
 use strict;
 use utf8;
 use warnings;
@@ -11,9 +13,12 @@ my %WriteMakefileArgs = (
     ABSTRACT_FROM  => 'lib/Personnummer.pm',
     VERSION_FROM   => 'lib/Personnummer.pm',
     BUILD_REQUIRES => {},
-    TEST_REQUIRES  => {},
-    PREREQ_PM      => {
-        'DateTime::Format::Strptime' => '>=1.76',
+    TEST_REQUIRES  => {
+        'Test::More' => 0,
+    },
+    PREREQ_PM => {
+        'DateTime'           => 0,
+        'DateTime::Duration' => 0,
     },
     META_MERGE => {
         'dynamic_config' => 0,
