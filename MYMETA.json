@@ -1,0 +1,57 @@
+{
+   "abstract" : "Validate Swedish social security numbers",
+   "author" : [
+      "Simon Sawert <simon@sawert.se>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "ExtUtils::MakeMaker version 7.38, CPAN::Meta::Converter version 2.150010",
+   "license" : [
+      "mit"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : 2
+   },
+   "name" : "Personnummer",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {}
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "DateTime::Format::Strptime" : "1.76"
+         }
+      },
+      "test" : {
+         "requires" : {}
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/bombsimon/perl-personnummer/issues"
+      },
+      "homepage" : "https://github.com/bombsimon/perl-personnummer",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/bombsimon/perl-personnummer.git",
+         "web" : "https://github.com/bombsimon/perl-personnummer"
+      }
+   },
+   "version" : "0.01",
+   "x_contributors" : [
+      "Simon Sawert"
+   ],
+   "x_serialization_backend" : "JSON::PP version 4.02"
+}
