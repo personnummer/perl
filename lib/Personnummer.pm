@@ -216,9 +216,13 @@ the last digits matches the result of the Luhn algorithm.
 
 Returns 1 if the social security number represents a female, otherwize 0.
 
-=head2 is_female
+=head2 is_male
 
 Returns 1 if the social security number represents a male, otherwize 0.
+
+=head2 is_coordination_number
+
+Returns 1 if the personal number is a coordinational number, otheriwze 0.
 
 =cut
 
