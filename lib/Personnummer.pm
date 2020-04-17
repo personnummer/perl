@@ -81,6 +81,10 @@ sub is_male {
     return $self->is_female() ? 0 : 1;
 }
 
+sub is_coordination_number {
+    return shift->{is_coordination_number};
+}
+
 sub _luhn {
     my $number = shift;
 
@@ -120,7 +124,7 @@ sub _parse {
         $date = DateTime->new(
             year   => $century + $year,
             month  => $month,
-            day    => $day,
+            day    => $day % 60,
             hour   => 0,
             minute => 0,
             second => 0,
@@ -136,10 +140,11 @@ sub _parse {
     }
 
     return (
-        date    => $date,
-        serial  => $serial,
-        control => $control,
-        divider => $divider
+        date                   => $date,
+        serial                 => $serial,
+        control                => $control,
+        divider                => $divider,
+        is_coordination_number => $day > 31 ? 1 : 0,
     );
 }
 
