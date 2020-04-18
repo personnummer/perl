@@ -101,7 +101,9 @@ sub _luhn {
         $even ^= 1;
     }
 
-    return 10 - ( $sum % 10 );
+    my $checksum = 10 - ( $sum % 10 );
+
+    return $checksum == 10 ? 0 : $checksum;
 }
 
 sub _parse {
