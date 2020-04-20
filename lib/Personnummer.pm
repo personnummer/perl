@@ -7,7 +7,7 @@ use feature qw( say );
 use Carp;
 use DateTime;
 
-our $VERSION = '0.01';
+our $VERSION = '3.00';
 
 sub new {
     my ( $class, $pnr ) = @_;
@@ -33,14 +33,10 @@ sub format {
     croak "cannot format invalid social security numbers" if not $self->valid();
 
     my $year = $long_format ? $self->{date}->year : $self->{date}->year % 100;
+    my $day = $self->{is_coordination_number} ? $self->{date}->day + 60 : $self->{date}->day;
 
-    return sprintf(
-        "%s%02d%02d-%03d%d",
-        $year,
-        $self->{date}->month,
-        $self->{date}->day,
-        $self->{serial}, $self->{control}
-    );
+    return
+      sprintf( "%s%02d%02d-%03d%d", $year, $self->{date}->month, $day, $self->{serial}, $self->{control} );
 }
 
 sub get_age {
@@ -105,7 +101,9 @@ sub _luhn {
         $even ^= 1;
     }
 
-    return 10 - ( $sum % 10 );
+    my $checksum = 10 - ( $sum % 10 );
+
+    return $checksum == 10 ? 0 : $checksum;
 }
 
 sub _parse {

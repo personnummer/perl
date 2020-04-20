@@ -42,6 +42,11 @@ subtest 'Formatting' => sub {
             short => "900101-0017",
             long  => "19900101-0017"
         },
+        {
+            input => "900161-0017",
+            short => "900161-0017",
+            long  => "19900161-0017"
+        },
     );
 
     foreach my $tc ( @cases ) {
