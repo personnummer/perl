@@ -24,12 +24,12 @@ my %WriteMakefileArgs = (
         'dynamic_config' => 0,
         'meta-spec'      => { version => 2 },
         'resources'      => {
-            bugtracker => { web => 'https://github.com/bombsimon/perl-personnummer/issues' },
-            homepage   => 'https://github.com/bombsimon/perl-personnummer',
+            bugtracker => { web => 'https://github.com/personnummer/perl-personnummer/issues' },
+            homepage   => 'https://github.com/personnummer/perl-personnummer',
             repository => {
                 type => 'git',
-                url  => 'https://github.com/bombsimon/perl-personnummer.git',
-                web  => 'https://github.com/bombsimon/perl-personnummer',
+                url  => 'https://github.com/personnummer/perl-personnummer.git',
+                web  => 'https://github.com/personnummer/perl-personnummer',
             },
         },
         'x_contributors' => ['Simon Sawert'],
