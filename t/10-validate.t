@@ -6,7 +6,7 @@ use strict;
 use Test::More;
 use Personnummer;
 
-subtest 'Valid social security numbers' => sub {
+subtest 'Valid personal identity numbers' => sub {
     my @cases = (
         "20160229-1237", "6403273813", "19900101-0017", "196408233234", "000101-0107", "510818-9167",
         "19130401+2931", "0001010107", "19090903-6600",
@@ -19,7 +19,7 @@ subtest 'Valid social security numbers' => sub {
     }
 };
 
-subtest 'Invalid social security numbers' => sub {
+subtest 'Invalid personal identity numbers' => sub {
     my @cases = ( "201702291236", "6403273814", "510819-9167", "640327-381", "640327-3814", );
 
     foreach my $tc ( @cases ) {

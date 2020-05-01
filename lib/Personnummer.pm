@@ -30,7 +30,7 @@ sub format {
     my $self        = shift;
     my $long_format = shift // 0;
 
-    croak "cannot format invalid social security numbers" if not $self->valid();
+    croak "cannot format invalid personal identity numbers" if not $self->valid();
 
     my $year = $long_format ? $self->{date}->year : $self->{date}->year % 100;
     my $day = $self->{is_coordination_number} ? $self->{date}->day + 60 : $self->{date}->day;
@@ -42,7 +42,7 @@ sub format {
 sub get_age {
     my $self = shift;
 
-    croak "cannot get age of invalid social security number" if not defined $self->{date};
+    croak "cannot get age of invalid personal identity number" if not defined $self->{date};
 
     my $diff = DateTime->now() - $self->{date};
 
@@ -150,18 +150,18 @@ sub _parse {
 
 =head1 NAME
 
-Personnummer - Validate Swedish social security numbers
+Personnummer - Validate Swedish personal identity numbers
 
 =head1 SYNOPSIS
 
     use Personnummer;
 
-    die "Invalid social security number"
+    die "Invalid personal identity number"
         if not Personnummer->new("19900101-1234")->valid();
 
 =head1 DESCRIPTION
 
-L<Personnummer> validates and extracts information about Swedish social security
+L<Personnummer> validates and extracts information about Swedish personal identity
 numbers. It's implemented to follow the design described in
 L<https://github.com/personnummer/meta>.
 
@@ -197,26 +197,26 @@ Same as new but is called without the class instance.
 
 =head2 format
 
-Format the social security number. Takes an optional argument which will print
+Format the personal identity number. Takes an optional argument which will print
 in long format (full year) if passed as a true value.
 
 =head2 get_age
 
-Get the age for a given social security number. Will crash if the object
+Get the age for a given personal identity number. Will crash if the object
 instance isn't valid.
 
 =head2 valid
 
-Will validate the social security number by checking if the date is valid and if
-the last digits matches the result of the Luhn algorithm.
+Will validate the personal identity number by checking if the date is valid and
+if the last digits matches the result of the Luhn algorithm.
 
 =head2 is_female
 
-Returns 1 if the social security number represents a female, otherwize 0.
+Returns 1 if the personal identity number represents a female, otherwize 0.
 
 =head2 is_male
 
-Returns 1 if the social security number represents a male, otherwize 0.
+Returns 1 if the personal identity number represents a male, otherwize 0.
 
 =head2 is_coordination_number
 

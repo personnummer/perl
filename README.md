@@ -1,6 +1,8 @@
 # perl-personnummer
 
-Swedish social security number validation implemented in Perl.
+Validate Swedish [personal identification
+numbers](https://en.wikipedia.org/wiki/Personal_identity_number_(Sweden)) with
+[Perl](https://www.perl.org/)
 
 
 ## Usage
@@ -18,11 +20,11 @@ use Personnummer;
 my $pnr = Personnummer->new( $ARGV[0] );
 
 if ( !$pnr->valid() ) {
-    die "Invalid social security number";
+    die "Invalid personal identity number";
 }
 
 my $gender = $pnr->is_female() ? "female" : "male";
 
-printf( "The person with social security number %s is a %s of age %d\n",
+printf( "The person with personal identity number %s is a %s of age %d\n",
     $pnr->format(), $gender, $pnr->get_age() );
 ```
