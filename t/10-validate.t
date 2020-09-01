@@ -20,7 +20,7 @@ subtest 'Valid personal identity numbers' => sub {
 };
 
 subtest 'Invalid personal identity numbers' => sub {
-    my @cases = ( "201702291236", "6403273814", "510819-9167", "640327-381", "640327-3814", );
+    my @cases = ( "201702291236", "6403273814", "510819-9167", "640327-381", "640327-3814", "20150916-0006" );
 
     foreach my $tc ( @cases ) {
         my $pnr = Personnummer->new( $tc );

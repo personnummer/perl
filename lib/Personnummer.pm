@@ -32,8 +32,8 @@ sub format {
 
     croak "cannot format invalid personal identity numbers" if not $self->valid();
 
-    my $year = $long_format ? $self->{date}->year : $self->{date}->year % 100;
-    my $day = $self->{is_coordination_number} ? $self->{date}->day + 60 : $self->{date}->day;
+    my $year = $long_format                    ? $self->{date}->year     : $self->{date}->year % 100;
+    my $day  = $self->{is_coordination_number} ? $self->{date}->day + 60 : $self->{date}->day;
 
     return
       sprintf( "%s%02d%02d-%03d%d", $year, $self->{date}->month, $day, $self->{serial}, $self->{control} );
@@ -62,7 +62,8 @@ sub valid {
         $self->{serial}
     );
 
-    return defined $self->{date} && _luhn( $pnr ) == ( $self->{control} // -1 );
+    return
+      defined $self->{date} && _luhn( $pnr ) == ( $self->{control} // -1 ) && ( $self->{serial} // -1 ) > 0;
 }
 
 sub is_female {
