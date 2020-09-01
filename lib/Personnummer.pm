@@ -7,7 +7,7 @@ use feature qw( say );
 use Carp;
 use DateTime;
 
-our $VERSION = '3.00';
+our $VERSION = '3.01';
 
 sub new {
     my ( $class, $pnr ) = @_;
