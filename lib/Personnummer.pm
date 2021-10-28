@@ -111,7 +111,7 @@ sub _parse {
     my $pnr = shift;
 
     my ( $century, $year, $month, $day, $divider, $serial, $control )
-      = $pnr =~ /^(\d{2})?(\d{2})(\d{2})(\d{2})([-|+]?)?(\d{3})(\d)?$/x;
+      = $pnr =~ /^(\d{2})?(\d{2})(\d{2})(\d{2})([-+]?)?(\d{3})(\d)?$/x;
 
     return () if not defined $year;
 
