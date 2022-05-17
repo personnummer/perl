@@ -28,9 +28,8 @@ jobs:
         with:
           perl-version: ${{ matrix.perl }}
       - run: perl -V
-      - run: |
-          cpanm ExtUtils::MakeMaker || true
-          cat /home/runner/.cpanm/work/*/build.log
-          exit 1
+      - name: Force install ExtUtils::MakeMaker on machines running old perl version
+        run: cpanm ExtUtils::MakeMaker --notest ---force
+        if: matrix.perl == '5.10'
       - run: cpanm --installdeps .
       - run: prove -lv t
