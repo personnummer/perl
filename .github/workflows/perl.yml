@@ -28,7 +28,9 @@ jobs:
         with:
           perl-version: ${{ matrix.perl }}
       - run: perl -V
-      - run: cpanm ExtUtils::MakeMaker
-      - run: cat /home/runner/.cpanm/work/*/build.log
+      - run: |
+          cpanm ExtUtils::MakeMaker || true
+          cat /home/runner/.cpanm/work/*/build.log
+          exit 1
       - run: cpanm --installdeps .
       - run: prove -lv t
