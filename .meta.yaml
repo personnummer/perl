@@ -1,0 +1,4 @@
+name: "Perl"
+maintainer: "@bombsimon"
+spec: 3.0
+workflow: "perl.yml"
