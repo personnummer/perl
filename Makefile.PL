@@ -15,9 +15,6 @@ my %WriteMakefileArgs = (
     BUILD_REQUIRES => {},
     TEST_REQUIRES  => {
         'Test::More' => 0,
-        # Test::Deep requires 5.12 after this version so we need to pin it.
-        # 🤞 this will work in the future, 5.10 is only 15 years old.
-        'Test::Deep' => '1.130',
     },
     PREREQ_PM => {
         'DateTime'           => 0,
