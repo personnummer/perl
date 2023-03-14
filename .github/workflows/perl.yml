@@ -33,3 +33,6 @@ jobs:
         if: matrix.perl == '5.10'
       - run: cpanm --installdeps .
       - run: prove -lv t
+
+      - run: tail -n 150 /home/runner/.cpanm/work/*/build.log
+        if: ${{ failure() }}
