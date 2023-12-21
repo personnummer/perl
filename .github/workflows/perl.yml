@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
       - name: Setup perl
-        uses: shogo82148/actions-setup-perl@v1.25.0
+        uses: shogo82148/actions-setup-perl@v1.26.0
         with:
           perl-version: ${{ matrix.perl }}
       - run: perl -V
