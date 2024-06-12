@@ -22,7 +22,7 @@ jobs:
           - "5.10"
     name: Perl ${{ matrix.perl }} on ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4.1.6
+      - uses: actions/checkout@v4.1.7
       - name: Setup perl
         uses: shogo82148/actions-setup-perl@v1.30.0
         with:
