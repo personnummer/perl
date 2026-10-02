@@ -28,3 +28,7 @@ my $gender = $pnr->is_female() ? "female" : "male";
 printf( "The person with personal identity number %s is a %s of age %d\n",
     $pnr->format(), $gender, $pnr->get_age() );
 ```
+
+## In memoriam
+
+Fredrik "Frozzare" Forsmo (1991-2026) was the initiator, co-founder and a core contributor of the personnummer project. This library carries his work. He is missed.
